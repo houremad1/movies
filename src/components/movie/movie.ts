@@ -15,18 +15,20 @@ export class Movie implements OnInit {
  listOfMovies:any []=[];
  constructor(private movieServ:MovieS){}
  ngOnInit(): void {
-  try {
-    this.listOfMovies = JSON.parse(localStorage.getItem('movies-cache') || '[]');
-  } catch { this.listOfMovies = []; }
-     this.reload();
+  this.reload();
  }
  reload(){
-  this.movieServ.getallmovies().subscribe({
+     
+    this.movieServ.getallmovies().subscribe({
       next:(data)=>{
         console.log(data);
         this.listOfMovies=data;
         localStorage.setItem('movies-cache', JSON.stringify(data));
       }
      })
+      try {
+    this.listOfMovies = JSON.parse(localStorage.getItem('movies-cache') || '[]');
+  } catch { this.listOfMovies = []; }
+ 
  }
 }

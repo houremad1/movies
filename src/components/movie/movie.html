@@ -3,9 +3,11 @@
 
   @for (movie of listOfMovies; track $index)  {
   <h2>{{ movie.title }}</h2>
+  <img [src]="'https://image.tmdb.org/t/p/w500' +movie.poster_path" alt="" width="50px">
   <p>Rating: {{ movie.vote_average }}</p>
   <p>Release: {{ movie.release_date }}</p>
   <p>{{ movie.overview }}</p>
+
 }
 @empty { <p>No movies</p> }
 
