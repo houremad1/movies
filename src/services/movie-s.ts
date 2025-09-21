@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Query } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,4 +10,10 @@ export class MovieS {
   getallmovies():Observable<any>{
     return this.http.get<any>("http://localhost:3006/")
   }
+
+  searchMovies(query:string):Observable<any>{
+    return this.http.get<any>(`http://localhost:3006/movies?query=${query}`)
+  }
+
+
 }
