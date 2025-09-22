@@ -1,8 +1,8 @@
 
 const mongoose=require("mongoose");
 const movieSchema=new mongoose.Schema({
-     id: Number,
-   title: String,
+      id: Number,
+      title: String,
       overview: String,
       release_date: String,
       vote_average: Number,

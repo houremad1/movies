@@ -6,4 +6,6 @@ export const routes: Routes = [
     { path: 'search', component:Search},
     { path: '', component:Home},
 
+    //  { path: '', component:Movie},
+
 ];
