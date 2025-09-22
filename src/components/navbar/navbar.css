@@ -1,0 +1,25 @@
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: rgb(255, 230, 0); */
+  padding: 10px 20px;
+
+}
+.logo{
+  font-size: larger;
+  font-weight: bold;
+  color: black;
+}
+.watchlist{
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+.nav-right{
+  display: flex;
+}
+.bi-heart-fill{
+  margin: 0px 5px 5px 10px;
+}

@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
-import { Movie } from '../components/movie/movie';
+import { Search } from '../pages/search/search';
+import { Home } from '../pages/home/home';
 
 export const routes: Routes = [
-     { path: '', component:Movie}
+    { path: 'search', component:Search},
+    { path: '', component:Home},
+
 ];
