@@ -1,13 +1,53 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Navbar } from '../../components/navbar/navbar';
-import { Movies } from "../../components/movies/movies";
+import { MovieS } from '../../services/movie-s';
 
 @Component({
   selector: 'app-search',
-  imports: [Navbar, Movies],
+  standalone: true, 
+  imports: [FormsModule, Navbar],
   templateUrl: './search.html',
-  styleUrl: './search.css'
+  styleUrls: ['./search.css']
 })
-export class Search {
+export class Search implements OnInit {
+  listOfMovies: any[] = [];
+  movieSeearch: string = '';
 
+  constructor(private movieServ: MovieS) { }
+
+  ngOnInit(): void {
+    this.ftechMovies();
+  }
+
+  ftechMovies() {
+    this.movieServ.getallmovies().subscribe({
+      next: (data) => {
+        console.log(data);
+        this.listOfMovies = data;
+        localStorage.setItem('movies-cache', JSON.stringify(data));
+      }
+    });
+
+    try {
+      this.listOfMovies = JSON.parse(localStorage.getItem('movies-cache') || '[]');
+    }
+    catch { this.listOfMovies = []; }
+  }
+
+  search() {
+    const trimmedsearch = this.movieSeearch.trim();
+    if (trimmedsearch) {
+      this.movieServ.searchMovies(trimmedsearch).subscribe({
+        next: (data) => {
+          this.listOfMovies = data;
+        },
+        error: (err) => console.log("search error")
+      });
+    }
+    else {
+      console.log("empty");
+      this.ftechMovies();
+    }
+  }
 }
