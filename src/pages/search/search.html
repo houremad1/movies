@@ -9,23 +9,9 @@
   <h4>Now Playing</h4>
   <div class="row g-4">
     @for (movie of listOfMovies; track $index) {
-    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-      <a href="/movie/{{movie.id}}" class="text-decoration-none">
-        <div class="card movie-card shadow">
-          <img [src]="'https://image.tmdb.org/t/p/w500' +movie.poster_path" class="card-img-top"
-            alt="Movie Poster">
-          <i class="bi bi-three-dots more-icon"></i>
-          <div class="rating-badge">{{ movie.vote_average }}</div>
-          <div class="card-body">
-            <h4 class="movie-title d-flex">{{movie.title}}</h4>
-            <div class="d-flex justify-content-between">
-              <p class="movie-date">{{ movie.release_date }}</p>
-              <i class="bi bi-heart-fill"></i>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
+      <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+        <app-movie-card [movie]="movie"></app-movie-card>
+      </div>
   }
   </div>
 </div>

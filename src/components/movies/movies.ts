@@ -3,17 +3,20 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { MovieS } from '../../services/movie-s';
 import { CommonModule } from '@angular/common';
+import { MovieCard } from '../movie-card/movie-card';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-movies',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, MovieCard, NgxPaginationModule],
   templateUrl: './movies.html',
   styleUrl: './movies.css'
 })
 export class Movies implements OnInit {
   listOfMovies: any[] = [];
   movieSeearch: string = '';
+  page=1;
   constructor(private movieServ: MovieS) { }
   ngOnInit(): void {
     this.ftechMovies();

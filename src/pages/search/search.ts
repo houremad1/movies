@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Navbar } from '../../components/navbar/navbar';
 import { MovieS } from '../../services/movie-s';
+import { MovieCard } from '../../components/movie-card/movie-card';
 
 @Component({
   selector: 'app-search',
-  standalone: true, 
-  imports: [FormsModule, Navbar],
+  standalone: true,
+  imports: [FormsModule, Navbar, MovieCard],
   templateUrl: './search.html',
   styleUrls: ['./search.css']
 })
