@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500/' + (movie?.poster_path || movie?.backdrop_path || '/default-poster.jpg')"
+        alt="{{ movie?.title || 'Movie' }}"
+        class="img-fluid rounded shadow"
+        *ngIf="movie"
+      />
+    </div>
+    <div class="col-md-8">
+      <h2>{{ movie?.title || 'No Title' }} <span class="text-warning float-end">💛</span></h2>
+      <p class="small text-muted">{{ movie?.release_date || 'No Release Date' }}</p>
+      <div class="d-flex align-items-center">
+        <span class="text-warning">★★★★☆</span>
+        <span class="ms-2">{{ movie?.vote_average || 0 }}k</span>
+      </div>
+      <p class="mt-2">{{ movie?.overview || 'No overview' }}</p>
+      <p class="mt-2">{{ movie?.overview }}</p>
+      <div class="d-flex gap-2 mt-2">
+        <button class="btn btn-warning btn-sm">Action</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <button class="btn btn-warning btn-sm">Crime</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <button class="btn btn-warning btn-sm">Thriller</button>
+      </div>
+      <p class="mt-2">
+  Duration: {{ movie?.runtime || 134 }} Min.
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  Languages: {{ movie?.original_language || 'English' }}
+</p>
+
+      <a [href]="movie?.homepage || '#'" target="_blank" rel="noopener" class="btn btn-outline-warning btn-sm d-flex align-items-center gap-1" style="border-radius: 20px; font-weight: 600;">
+  Website
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M14 2.5v11a.5.5 0 0 1-1 0V3.707L3.854 12.854a.5.5 0 0 1-.708-.708L12.293 3H5.5a.5.5 0 0 1 0-1h8z"/>
+  </svg>
+</a>
+
+  
+      <p class="mt-2">
+        <img
+          src="https://logos-world.net/wp-content/uploads/2020/11/Marvel-Studios-Logo-2016-present.png"
+          alt="Marvel Studios"
+          width="100"
+          class="mt-2"
+          *ngIf="movie"
+        />
+      </p>
+    </div>
+  </div>
+  <div class="mt-4" *ngIf="recommendations.length > 0">
+    <hr class="section-divider" />
+<h4 class="recommendation-header">Recommendations</h4>
+
+    <div class="row g-4">
+      <div class="col-lg-2 col-md-3 col-sm-4 col-6" *ngFor="let rec of recommendations; trackBy: trackByFn">
+        <app-movie-card [movie]="rec"></app-movie-card>
+      </div>
+    </div>
+  </div>
+</div>

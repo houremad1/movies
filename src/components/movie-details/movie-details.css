@@ -1,0 +1,35 @@
+.img-fluid { max-width: 100%; height: auto; }
+.rating-circle {
+  width: 25px;
+  height: 25px;
+  font-size: 0.7rem; 
+  line-height: 25px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #444;
+  color: white;
+  display: block;
+  margin: 5px auto 0 auto; 
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+
+.float-end {
+  float: right; 
+}
+.small {
+  font-size: 0.8rem;
+}
+.section-divider {
+  border: none;
+  border-top: 3px solid rgb(205, 202, 202); /* خط عريض باللون الأسود */
+  width: 100%; /* العرض كامل */
+  margin-bottom: 1rem; /* مسافة تحت الخط */
+  margin-top: 2rem; /* مسافة فوق الخط لترك فراغ */
+}
+
+.recommendation-header {
+  font-size: 1.8rem; /* تكبير حجم الخط */
+  font-weight: bold;
+  margin-top: 0; /* لجعل الهيدر قريب من الخط */
+}
