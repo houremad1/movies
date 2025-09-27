@@ -14,6 +14,10 @@ export class MovieS {
   searchMovies(query:string):Observable<any>{
     return this.http.get<any>(`http://localhost:3006/movies?query=${query}`)
   }
+   getMovieById(id: string): Observable<any> {
+    return this.http.get<any>(`http://localhost:3006/movies/${id}`);
+  }
+
 
 
 }

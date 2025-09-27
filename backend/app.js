@@ -42,6 +42,22 @@ server.get("/movies", (req, res) => {
             res.send("error ")
         })
 })
+server.get("/movies/:id",(req,res)=>{
+    console.log("hhhh")
+    let reqId=req.params.id;
+    movieModel.findOne({_id:reqId})
+    .then((movie)=>{
+      if(movie){
+        res.send(movie)
+      }
+      else{
+        res.send(`No Product founded with this id :${reqId}`);
+      }
+    })
+    .catch((err)=>{
+          res.send("Error getting Data");
+    })
+})
 server.listen(3006, function () {
     console.log("server running")
 })
