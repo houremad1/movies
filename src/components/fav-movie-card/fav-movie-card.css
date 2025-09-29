@@ -1,0 +1,21 @@
+img{
+  border-radius: 30px;
+  height: 250px;
+}
+
+.movie-card{
+  height: 250px;
+}
+
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bi {
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}

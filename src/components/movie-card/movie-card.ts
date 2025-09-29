@@ -12,5 +12,12 @@ export class MovieCard {
   getRating(movie: any): number {
   return Math.round(movie.vote_average * 10);
 }
+getStrokeColor(rate: number): string {
+  if (rate >= 70) {
+    return '#21d07a'; // green
+  } else {
+    return '#d2d531'; // yellow
+  }
+}
 
 }
