@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { Navbar } from '../../components/navbar/navbar';
 import { MovieS } from '../../services/movie-s';
 import { MovieCard } from '../../components/movie-card/movie-card';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-search',
